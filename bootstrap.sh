@@ -13,6 +13,7 @@ function doIt() {
 		--exclude "LICENSE-MIT.txt" \
 		--exclude "brew.sh" \
 		--exclude ".gitignore" \
+		--exclude ".editorconfig" \
 		--exclude ".idea" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
