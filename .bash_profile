@@ -26,10 +26,10 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew &> /dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+if [ -r "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
 	# Ensure existing Homebrew v1 completions continue to work
-	export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
-	source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
+	export BASH_COMPLETION_COMPAT_DIR="${BREW_PREFIX}/etc/bash_completion.d";
+	source "${BREW_PREFIX}/etc/profile.d/bash_completion.sh";
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
@@ -58,8 +58,8 @@ if command -v broot 1>/dev/null 2>&1; then
 fi
 
 # asdf version manager
-if test -f "/usr/local/opt/asdf/libexec/asdf.sh"; then
-	source /usr/local/opt/asdf/libexec/asdf.sh
+if test -f "${BREW_PREFIX}/opt/asdf/libexec/asdf.sh"; then
+	source "${BREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 	source ~/.asdf/plugins/java/set-java-home.bash
 fi
 
